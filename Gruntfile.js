@@ -13,17 +13,18 @@ module.exports = function(grunt) {
       }
     },
     sass: {
-  		options: {
-  			sourceMap: true
-  		},
+      /**
+       * Read all '.scss' files in the src/assets/ directory and put the
+       * resulting '.css' files into build/assets/
+       */
   		dist: {
-  			files: {
+  			files: [{
   				expand: true,
   				cwd: 'src/assets/',
-  				src: ['**/*.scss'],
-  				dest: '../build/',
-  				ext: 'css'
-  			}
+  				src: ['*.scss'],
+  				dest: 'build/assets',
+  				ext: '.css'
+  			}]
   		}
   	}
   });
