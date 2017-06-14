@@ -1,3 +1,11 @@
-body {
-    background: white
+@import "vendor/module";
+
+.marvel-device {
+	max-width: 90%;
+	margin: 0 auto;
+	
+	.screen {
+		background: #fff;
+		color: #000;
+	}
 }

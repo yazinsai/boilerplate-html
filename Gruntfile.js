@@ -3,13 +3,16 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    src: 'src',
+    dest: 'build',
+    
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'src/<%= pkg.name %>.js',
-        dest: 'build/<%= pkg.name %>.min.js'
+        src: '<%= src %>/<%= pkg.name %>.js',
+        dest: '<%= dest %>/<%= pkg.name %>.min.js'
       }
     },
     sass: {
@@ -20,19 +23,31 @@ module.exports = function(grunt) {
   		dist: {
   			files: [{
   				expand: true,
-  				cwd: 'src/assets/',
+  				cwd: '<%= src %>/assets/',
   				src: ['*.scss'],
-  				dest: 'build/assets',
+  				dest: '<%= dest %>/assets',
   				ext: '.css'
   			}]
   		}
+  	},
+  	htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {                                   
+          '<%= dest %>/index.html': '<%= src %>/index.html'
+        }
+      }
   	}
   });
 
-  // Load the plugin that provides the "uglify" task.
+  // Load the plugins that we use
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
   // Default task(s).
-  grunt.registerTask('default', ['sass']);
+  grunt.registerTask('default', ['sass', 'htmlmin']);
 };
