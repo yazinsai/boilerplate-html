@@ -31,6 +31,9 @@ module.exports = function(grunt) {
   		}
   	},
   	htmlmin: {
+  	  /**
+  	   * Minifies the HTML output of the main index file that we're using
+  	   */
       dist: {
         options: {
           removeComments: true,
@@ -40,13 +43,25 @@ module.exports = function(grunt) {
           '<%= dest %>/index.html': '<%= src %>/index.html'
         }
       }
-  	}
+  	},
+  	
+  	watch: {
+      css: {
+        files: '<%= src %>/**/*.scss',
+        tasks: ['sass']
+      },
+      html: {
+        files: ['<%= src %>/**/*.html', '<%= src %>/**/*.htm'],
+        tasks: ['htmlmin']
+      }
+    }
   });
 
   // Load the plugins that we use
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
   grunt.registerTask('default', ['sass', 'htmlmin']);
