@@ -1,0 +1,8 @@
+/* declare fonts in use */
+@font-face {
+  font-family: 'LeagueSpartan-Bold';
+  src: url('#{assetPath}LeagueSpartan-Bold.eot?#iefix') format('embedded-opentype'),  url('#{assetPath}LeagueSpartan-Bold.otf')  format('opentype'),
+       url('#{assetPath}LeagueSpartan-Bold.woff') format('woff'), url('#{assetPath}LeagueSpartan-Bold.ttf')  format('truetype'), url('#{assetPath}LeagueSpartan-Bold.svg#LeagueSpartan-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
