@@ -20,20 +20,20 @@ module.exports = function(grunt) {
        * Read all '.scss' files in the src/assets/ directory and put the
        * resulting '.css' files into build/assets/
        */
-  		dist: {
-  			files: [{
-  				expand: true,
-  				cwd: '<%= src %>/assets/',
-  				src: ['*.scss'],
-  				dest: '<%= dest %>/assets',
-  				ext: '.css'
-  			}]
-  		}
-  	},
-  	htmlmin: {
-  	  /**
-  	   * Minifies the HTML output of the main index file that we're using
-  	   */
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= src %>/assets/',
+          src: ['*.scss'],
+          dest: '<%= dest %>/assets',
+          ext: '.css'
+        }]
+      }
+    },
+    htmlmin: {
+      /**
+       * Minifies the HTML output of the main index file that we're using
+       */
       dist: {
         options: {
           removeComments: true,
@@ -43,9 +43,9 @@ module.exports = function(grunt) {
           '<%= dest %>/index.html': '<%= src %>/index.html'
         }
       }
-  	},
-  	
-  	watch: {
+    },
+    
+    watch: {
       css: {
         files: '<%= src %>/**/*.scss',
         tasks: ['sass']
@@ -64,5 +64,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['sass', 'htmlmin']);
+  grunt.registerTask('default', ['watch']);
 };
