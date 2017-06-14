@@ -15,12 +15,16 @@ module.exports = function(grunt) {
         dest: '<%= dest %>/<%= pkg.name %>.min.js'
       }
     },
+    
     sass: {
       /**
        * Read all '.scss' files in the src/assets/ directory and put the
        * resulting '.css' files into build/assets/
        */
       dist: {
+        options: {
+          style: 'compressed'
+        },
         files: [{
           expand: true,
           cwd: '<%= src %>/assets/',
@@ -30,6 +34,7 @@ module.exports = function(grunt) {
         }]
       }
     },
+    
     htmlmin: {
       /**
        * Minifies the HTML output of the main index file that we're using
@@ -54,7 +59,18 @@ module.exports = function(grunt) {
         files: ['<%= src %>/**/*.html', '<%= src %>/**/*.htm'],
         tasks: ['htmlmin']
       }
-    }
+    },
+    
+    copy: {
+      main: {
+        files: [{
+          expand: true, 
+          cwd: '<%= src %>/assets/fonts',
+          src: '**',
+          dest: '<%= dest %>/assets/'
+        }],
+      }
+    },
   });
 
   // Load the plugins that we use
@@ -62,8 +78,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('refresh', ['sass', 'htmlmin'])
+  grunt.registerTask('refresh', ['sass', 'copy', 'htmlmin'])
   grunt.registerTask('default', ['refresh', 'watch']);
 };

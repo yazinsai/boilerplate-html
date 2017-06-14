@@ -1,0 +1,21 @@
+$color-key: 'base' !default;
+
+$colors: (
+  'primary': (
+    'base': #000000,
+    /*
+    'light': #6EC86E,
+    'lighter': #eefaee,
+    'dark': #117711
+    */
+  ),
+  'secondary': (
+    'base': #1bb45e,
+  ),
+  'foreground': (
+    'base': #727272,
+  ),
+  'background': (
+    'base': #ffffff,
+  )
+);

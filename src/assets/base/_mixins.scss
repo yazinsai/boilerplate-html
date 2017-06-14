@@ -1,0 +1,72 @@
+/* Usage:
+
+aside.primary {
+  @include below(md) {
+    float: right;
+    width: 350px;
+  }
+}
+
+button {
+  color: color('foreground', 'lighter');
+}
+*/
+
+/* Responsive selectors */
+@mixin above($class) {
+  @if $class == xs {
+    @media (max-width: 767px) { @content; }
+  }
+ 
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+ 
+  @else if $class == md {
+    @media (min-width: 992px) { @content; }
+  }
+ 
+  @else if $class == lg {
+    @media (min-width: 1200px) { @content; }
+  }
+ 
+  @else {
+    @warn "above mixin supports: xs, sm, md, lg";
+  }
+}
+
+@mixin below($class) {
+  @if $class == sm {
+    @media (max-width: 768px) { @content; }
+  }
+ 
+  @else if $class == md {
+    @media (max-width: 992px) { @content; }
+  }
+ 
+  @else if $class == lg {
+    @media (max-width: 1200px) { @content; }
+  }
+ 
+  @else {
+    @warn "below mixin supports: sm, md, lg";
+  }
+}
+
+/* Colors */
+@function color(
+  $name: 'primary',
+  $variant: $color-key
+) {
+  $color: null;
+
+  // Get the color spectrum
+  $color-spectrum: map-get($colors, $name);
+
+  // Get the color variant
+  @if $color-spectrum {
+    $color: map-get($color-spectrum, $variant);
+  }
+
+  @return $color;
+}

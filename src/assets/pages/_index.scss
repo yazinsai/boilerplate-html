@@ -1,0 +1,20 @@
+$device-width: 320px;
+$device-height: 568px;
+
+.marvel-device {
+  display: block;
+  margin: 0 auto;
+  
+  max-width: 0.75 * $device-width;
+  max-height: 0.75 * $device-height;
+  
+  @include above(sm) {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .screen {
+    background: color('background');
+    color: color('primary');
+  }
+}

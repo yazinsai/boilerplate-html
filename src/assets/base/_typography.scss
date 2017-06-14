@@ -1,0 +1,38 @@
+
+/* Generic */
+
+
+/* Headers */
+%header {
+  font-family: 'LeagueSpartan-Bold';
+  color: color('primary');
+  line-height: 140%;
+}
+h1, h2, h3 {
+  @extend %header;
+}
+
+h1 {
+  @include above(sm) {
+    font-size: 4.5rem;
+  }
+}
+h2 {
+  @include above(sm) {
+    font-size: 3.5rem;
+  }
+}
+
+/* Body text */
+p {
+  font-family: 'varela_roundregular';
+  color: color('foreground');
+  font-size: 1.3rem;
+  line-height: 140%;
+}
+
+.no-mobile {
+  @include below(md) {
+    display: none;
+  }
+}

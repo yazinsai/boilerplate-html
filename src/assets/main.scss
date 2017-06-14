@@ -1,13 +1,8 @@
-@import "config";
 @import "vendor/module";
+@import "base/module";
 @import "fonts/module";
+@import "pages/module";
 
-.marvel-device {
-  max-width: 90%;
-  margin: 0 auto;
-  
-  .screen {
-    background: #fff;
-    color: #000;
-  }
+body {
+  margin: 1rem;
 }

@@ -1,0 +1,27 @@
+/**
+ * There's a great guide to flexbox here, that I can't recommend enough:
+ * https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+ */
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  align-items: center;
+  
+  @include below(sm) {
+  	&.sm-reverse {
+	  	flex-wrap: wrap-reverse;
+	  }
+  }
+}
+
+.grid-cell {
+	/* span the full width (mobile-first, remember?) */
+  flex: 0 0 100%; /* flex-grow, flex-shrink, flex-basis */
+  
+  @include above(sm) {
+  	/* share the space equally */
+  	flex: 1;
+  }
+}
