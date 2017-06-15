@@ -63,12 +63,20 @@ module.exports = function(grunt) {
     
     copy: {
       main: {
-        files: [{
-          expand: true, 
-          cwd: '<%= src %>/assets/fonts',
-          src: '**',
-          dest: '<%= dest %>/assets/'
-        }],
+        files: [
+          {
+            expand: true, 
+            cwd: '<%= src %>/assets/fonts',
+            src: '**',
+            dest: '<%= dest %>/assets/'
+          },
+          {
+            expand: true,
+            cwd: '<%= src %>/assets/images',
+            src: '**',
+            dest: '<%= dest %>/assets/'
+          }
+        ],
       }
     },
   });

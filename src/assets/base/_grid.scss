@@ -20,6 +20,10 @@
 	/* span the full width (mobile-first, remember?) */
   flex: 0 0 100%; /* flex-grow, flex-shrink, flex-basis */
   
+  &.no-wrap { /* even on mobile */
+  	flex: 1;
+  }
+  
   @include above(sm) {
   	/* share the space equally */
   	flex: 1;

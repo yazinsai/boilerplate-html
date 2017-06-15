@@ -11,6 +11,15 @@
 </head>
 <body>
   
+  <div class="grid">
+    <div class="grid-cell no-wrap">
+      <h2>FormsApp</h2>
+    </div>
+    <div class="grid-cell no-wrap" style="text-align:right">
+      <a href="javascript:toggleModal()" class="btn large">Try it</a>
+    </div>
+  </div>
+  
   <h1 style="text-align:center;">Offline Google Forms,&nbsp;<br class="no-mobile"/>Finally</h1>
 
   <div class="marvel-device nexus5">
@@ -23,27 +32,27 @@
     </div>
   </div>
   
-  <div class="grid sm-reverse">
+  <div class="feature-row grid sm-reverse">
+    <div class="grid-cell">
+      <h2>No more lost submissions.</h2>
+      <p>Fill the form once, and we'll guarantee it goes through &mdash; even if you're offline. As soon as you're connected, everything seamlessly syncs. It just works&trade;.</p>
+    </div>
+    <div class="grid-cell" style="text-align:center">
+      <img class="image" src="assets/phone-offline.png" alt="No more lost submissions." title="No more lost submissions.">
+    </div>
+  </div>
+  
+  <div class="feature-row grid">
+    <div class="grid-cell">
+      Image goes here
+    </div>
     <div class="grid-cell">
       <h2>Log data from anywhere!</h2>
-      <p>No more tiny bits of paper! When you're offline, FormsApp securely stores your data locally and seamlessly syncs it when you're back online.</p>
-    </div>
-    <div class="grid-cell">
-      Image goes here
+      <p>No more tiny bits of 📄! Work from the most remote customer site, or on a plane at 30,000 feet.</p>
     </div>
   </div>
   
-  <div class="grid">
-    <div class="grid-cell">
-      Image goes here
-    </div>
-    <div class="grid-cell">
-      <h2>Feature #2!</h2>
-      <p>This is going to be the best $39/mo. you've ever spent!</p>
-    </div>
-  </div>
-  
-  <div class="grid sm-reverse">
+  <div class="feature-row grid sm-reverse">
     <div class="grid-cell">
       <h2>Feature 3!</h2>
       <p>It has three features, like every other feature page you've ever seen!</p>
@@ -52,6 +61,29 @@
       Image goes here
     </div>
   </div>
+  
+  <div class="grid">
+    <div class="grid-cell" style="text-align:center;">
+      <a class="btn large" href="javascript:toggleModal()">Get Started</a>
+    </div>
+  </div>
+  
+  <div class=overlay>
+    <div id=registration class=modal>
+      <a href="javascript:toggleModal()" class=close>&times;</a>
+      <h1>Sign up now</h1>
+      <p>We'll send you a link to download FormsApp.</p>
+      <input type=email name=email placeholder="your@email.com" class="full-width">
+      <input type=submit class="btn full-width" value="Get Started">
+    </div>
+  </div>
+  
+  <script>
+    function toggleModal() {
+      var overlay = document.querySelector('.overlay');
+      overlay.classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>
