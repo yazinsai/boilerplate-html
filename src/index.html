@@ -11,6 +11,7 @@
 </head>
 <body>
   
+  <!--
   <div class="grid">
     <div class="grid-cell no-wrap">
       <h2>FormsApp</h2>
@@ -19,6 +20,7 @@
       <a href="javascript:toggleModal()" class="btn large">Try it</a>
     </div>
   </div>
+  -->
   
   <h1 style="text-align:center;">Offline Google Forms,&nbsp;<br class="no-mobile"/>Finally</h1>
 
@@ -40,6 +42,10 @@
     </div>
   </div>
   
+  <div style="text-align:center;margin: 2rem 0;">
+  	<a href="javascript:toggleModal()" class="btn large">Try it</a>
+  </div>
+  
   <div class="feature-row grid sm-reverse">
     <div class="grid-cell">
       <h2>No more lost submissions.</h2>
@@ -50,6 +56,7 @@
     </div>
   </div>
   
+  <!--
   <div class="feature-row grid">
     <div class="grid-cell">
       
@@ -59,6 +66,7 @@
       <p>No more tiny bits of 📄! Work from the most remote customer site, or on a plane at 30,000 feet.</p>
     </div>
   </div>
+  -->
   
   <div class="grid">
     <div class="grid-cell" style="text-align:center;">
@@ -69,10 +77,14 @@
   <div class=overlay>
     <div id=registration class=modal>
       <a href="javascript:toggleModal()" class=close>&times;</a>
-      <h1>Sign up now</h1>
-      <p>We'll send you a link to download FormsApp.</p>
-      <input type=email name=email placeholder="your@email.com" class="full-width">
-      <input type=submit class="btn full-width" value="Get Started">
+      
+      <div id="msg-register">
+      	<h1>Sign up now</h1>
+	      <p>We'll send you a link to download FormsApp.</p>
+	      <input type=email name=email placeholder="your@email.com" class="full-width">
+	      <input type=button id="save" class="btn full-width" value="Get Started" onclick="saveEmail()">
+      </div>
+      
     </div>
   </div>
   
@@ -97,7 +109,46 @@
         return step;
       }
     })();
+    
+    function saveEmail() {
+    	var email = document.getElementsByName('email')[0].value;
+    	
+    	/* firebase save */
+    	var usersRef = firebase.database().ref('users/').push();
+    	usersRef.set({email: email});
+    	
+    	/* done */
+    	document.getElementById('msg-register').innerHTML = 
+    		'<h1>Thanks!</h1>' + 
+    		'<p>We\'ll reach out to you via email within 24 hours.</p>';
+    }
   </script>
+  
+  <!-- firebase stuff -->
+  <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyAYEpJHQ6MM19fDQ7UuwAmhorZJo5YNaqs",
+	    authDomain: "formsapp-43b9a.firebaseapp.com",
+	    databaseURL: "https://formsapp-43b9a.firebaseio.com",
+	    projectId: "formsapp-43b9a",
+	    storageBucket: "",
+	    messagingSenderId: "813160359470"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	
+	<!-- google analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-101161704-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
 
 </body>
 </html>
