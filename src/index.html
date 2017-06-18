@@ -28,7 +28,15 @@
     <div class="volume"></div>
     <div class="camera"></div>
     <div class="screen">
-      [ form animation goes here ]
+      <div class="steps" onclick="nextStep()">
+        <img id="step0" src="assets/step0.png" title="How it works">
+        <img id="step1" src="assets/step1.png" title="Install FormsApp">
+        <img id="step2" src="assets/step2.png" title="Sign in with Google">
+        <img id="step3" src="assets/step3.png" title="Choose your form">
+        <img id="step4" src="assets/step4.png" title="Offline form created">
+        <img id="step5" src="assets/step5.png" title="Works offline">
+        <img id="step6" src="assets/step6.png" title="Syncs when online!">
+      </div>
     </div>
   </div>
   
@@ -44,21 +52,11 @@
   
   <div class="feature-row grid">
     <div class="grid-cell">
-      Image goes here
+      
     </div>
     <div class="grid-cell">
       <h2>Log data from anywhere!</h2>
       <p>No more tiny bits of 📄! Work from the most remote customer site, or on a plane at 30,000 feet.</p>
-    </div>
-  </div>
-  
-  <div class="feature-row grid sm-reverse">
-    <div class="grid-cell">
-      <h2>Feature 3!</h2>
-      <p>It has three features, like every other feature page you've ever seen!</p>
-    </div>
-    <div class="grid-cell">
-      Image goes here
     </div>
   </div>
   
@@ -83,6 +81,22 @@
       var overlay = document.querySelector('.overlay');
       overlay.classList.toggle('open');
     }
+    
+    /* closure */
+    var nextStep = (function() {
+      /* initial function call */
+    	var step = 0,
+    	    numSteps = document.querySelectorAll('.steps img').length - 1;
+    	    
+      return function() { 
+        if (step == numSteps) return false;
+        document.getElementById('step' + step).style.opacity = 0;
+        step += 1;
+        document.getElementById('step' + step).style.opacity = 1;
+        
+        return step;
+      }
+    })();
   </script>
 
 </body>

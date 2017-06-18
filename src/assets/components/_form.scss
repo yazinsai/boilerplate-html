@@ -1,6 +1,12 @@
-input[type=text], input[type=email] {
+input[type=text], 
+input[type=email],
+textarea, 
+select {
 	box-sizing: border-box;
-  padding: 6px;
+  font-family: 'varela_roundregular';
+  border-radius: 5px;
+	border: 1px solid #ccc;
+	padding: 9px;
   
   &.full-width {
   	width: 100%;

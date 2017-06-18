@@ -58,6 +58,10 @@ module.exports = function(grunt) {
       html: {
         files: ['<%= src %>/**/*.html', '<%= src %>/**/*.htm'],
         tasks: ['htmlmin']
+      },
+      images: {
+        files: ['<%= src %>/**/*.png', '<%= src %>/**/*.jpg'],
+        tasks: ['copy']
       }
     },
     

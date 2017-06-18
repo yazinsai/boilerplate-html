@@ -4,18 +4,33 @@ $device-height: 568px;
 .marvel-device {
   display: block;
   margin: 0 auto;
-  
+}
+
+.steps img, .marvel-device {
   max-width: 0.75 * $device-width;
   max-height: 0.75 * $device-height;
   
   @include above(sm) {
     max-width: 100%;
-    max-height: 100%;
+    max-height: none;
+  }
+}
+
+.steps {
+  position: relative;
+  cursor: pointer;
+  
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    
+    transition: .5s;
   }
   
-  .screen {
-    background: color('background');
-    color: color('primary');
+  #step0 {
+    opacity: 1;
   }
 }
 
