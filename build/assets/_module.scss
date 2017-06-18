@@ -1,0 +1,22 @@
+/** 
+ * All assets will be placed in the same directory as the main.css file, so we
+ * don't have to fret about relative dirs
+ */
+@font-face {
+  font-family: 'LeagueSpartan-Bold';
+  src: url(LeagueSpartan-Bold.eot?#iefix) format('embedded-opentype'),  url(LeagueSpartan-Bold.otf)  format('opentype'),
+       url(LeagueSpartan-Bold.woff) format('woff'), url(LeagueSpartan-Bold.ttf)  format('truetype'), url(LeagueSpartan-Bold.svg#LeagueSpartan-Bold) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'varela_roundregular';
+  src: url('VarelaRound-Regular-webfont.eot');
+  src: url('VarelaRound-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('VarelaRound-Regular-webfont.woff') format('woff'),
+       url('VarelaRound-Regular-webfont.ttf') format('truetype'),
+       url('VarelaRound-Regular-webfont.svg#varela_roundregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
